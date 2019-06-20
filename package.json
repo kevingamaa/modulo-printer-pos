@@ -6,9 +6,13 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "npm run build && electron ./dist/main.js",
+    "dev": "nodemon --watch 'src/' --exec \"ts-node src/entry.ts\" -e ts"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron/electron-quick-start-typescript.git"
+  },
   "keywords": [
     "Electron",
     "quick",
@@ -26,6 +30,14 @@
   },
   "dependencies": {
     "@types/express": "^4.17.0",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^2.9.2"
+  },
+  "bugs": {
+    "url": "https://github.com/electron/electron-quick-start-typescript/issues"
+  },
+  "homepage": "https://github.com/electron/electron-quick-start-typescript#readme",
+  "main": "index.js"
 }
