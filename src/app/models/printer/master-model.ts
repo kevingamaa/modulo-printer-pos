@@ -5,6 +5,7 @@ export class Master extends Printer  {
 
     public headers(options: any) 
     {
+        this.copy = options.copy;
         this.setFontSize(38);
         this.addCmd( this.quote(options.company_name) );
         this.setFontSize(0);
@@ -47,6 +48,7 @@ export class Master extends Printer  {
 
     public footer(order?: number) {
         this.addCmd(`subtotal: ${this.sum}`)
+        .newLine(1)
         .addCmd(`total: ${parseFloat(this.total.toFixed(2))}`)
         .newLine(2)
         .addCmd(`#Pedido n: ${order}`)
@@ -61,7 +63,7 @@ export class Master extends Printer  {
         .setProducts(req.products)
         .calcRateService(req.printer_options.rate_service)
         .footer(req.order);
-        return this.cmds;
+        return this;
     }
     
 }
