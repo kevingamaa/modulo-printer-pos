@@ -5,6 +5,10 @@
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
     "paths": {
       "*": ["node_modules/*"]
     },
